@@ -2,8 +2,8 @@
  ([n] (prime-factors n [] 2))
  ([n factors divisor]
   (if (> n 1)
-   (if (= (mod n divisor) 0)
-    (recur (long (/ n divisor)) (cons divisor factors) divisor)
+   (if (zero? (mod n divisor))
+    (recur (/ n divisor) (cons divisor factors) divisor)
     (recur n factors (inc divisor)))
    factors)))
 
