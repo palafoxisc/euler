@@ -1,13 +1,10 @@
-; Obtiene el factor primo mayor de un número
-
 (defn prime-factors
-  ([n]
-   (prime-factors n 2 '()))
-  ([n candidate acc]
-   (cond (<= n 1)
-         (reverse acc)
-         (zero? (rem n candidate))
-         (recur (/ n candidate) candidate (cons candidate acc))
-         :else (recur n (inc candidate) acc))))
+ ([n] (prime-factors n [] 2))
+ ([n factors divisor]
+  (if (> n 1)
+   (if (= (mod n divisor) 0)
+    (recur (long (/ n divisor)) (cons divisor factors) divisor)
+    (recur n factors (inc divisor)))
+   factors)))
 
 (println (apply max (prime-factors 600851475143)))
