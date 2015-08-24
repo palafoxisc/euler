@@ -18,6 +18,8 @@
       (recur n array (inc index) (next-j (inc index) 0) 1))
       array)))
 
-(def lista (take 40 (repeat true)))
+(def lista (take 105000 (repeat true)))
 
-(println (map #(first %) (drop 2 (filter #(second %) (map-indexed vector (primes 39 (vec lista)))))))
+;(println (map #(first %) (drop 2 (filter #(second %) (map-indexed vector (primes 39 (vec lista)))))))
+
+(println (nth (map #(first %) (drop 2 (filter #(second %) (map-indexed vector (primes 105000 (vec lista)))))) 10000))
