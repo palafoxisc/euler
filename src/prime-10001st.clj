@@ -17,6 +17,10 @@
       (recur limit array (inc index) (next-j (inc index) 0) 1))
       array)))
 
-(def primes-list (take 105000 (repeat true)))
+(def bool-array (take 105000 (repeat true)))
 
-(println (nth (map #(first %) (drop 2 (filter #(second %) (map-indexed vector (primes 105000 (vec primes-list)))))) 10000))
+(def only-primes (drop 2 (filter #(second %) (map-indexed vector (primes 105000 (vec bool-array))))))
+
+(def primes-numbers (map #(first %) only-primes))
+
+(println (nth primes-numbers 10000)) ; vector starts at 0
