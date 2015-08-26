@@ -1,4 +1,4 @@
-(def content (slurp "numbers.txt"))
+(def content (slurp "src/numbers.txt"))
 
 (defn to-digits 
   [string]
@@ -14,6 +14,6 @@
         products
         (recur n (rest digits) (cons (reduce * (take n digits)) products))))))
 
-(println (apply max (largest-product 4)))
+(println (apply max (largest-product 13)))
 
 ;{:prod (reduce * (take 13 digits)) :digits (take 13 digits)}
