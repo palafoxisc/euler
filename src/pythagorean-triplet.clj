@@ -5,7 +5,7 @@
 (defn pythagorean-triplet
   [a b]
   (if (zero? (mod b (long b)))
-    [ a b (- 1000 (+ a b))]
+    [a b (- 1000 (+ a b))]
     (recur (inc a) (formula (inc a)))))
 
 (println (pythagorean-triplet 0 1.1))
