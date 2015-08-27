@@ -1,6 +1,7 @@
 (defn formula
   [a]
-  (/ (- (* (- 1000 a) (- 1000 a)) (* a a)) (* 2 (- 1000 a))))
+  (let [c (- 1000 a)]
+    (/ (- (* c c) (* a a)) (* 2 c))))
 
 (defn pythagorean-triplet
   [a b]
