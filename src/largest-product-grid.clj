@@ -48,8 +48,9 @@
     acc
     (recur (inc n) arr (conj acc (to-map n arr)))))
 
-;(println (largest-product 0 (digits content) []))
-(println (apply max (map #(get-in % [:h :product]) (largest-product 0 (digits content) []))))
-(println (apply max (map #(get-in % [:v :product]) (largest-product 0 (digits content) []))))
-(println (apply max (map #(get-in % [:d :product]) (largest-product 0 (digits content) []))))
-(println (apply max (map #(get-in % [:di :product]) (largest-product 0 (digits content) []))))
+(def values (largest-product 0 (digits content) [])) 
+
+(println (apply max (map #(get-in % [:h :product]) values)))
+(println (apply max (map #(get-in % [:v :product]) values)))
+(println (apply max (map #(get-in % [:d :product]) values)))
+(println (apply max (map #(get-in % [:di :product]) values)))
