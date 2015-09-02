@@ -39,7 +39,7 @@
     :h (build-map n arr horizontal) 
     :v (build-map n arr vertical)
     :d (build-map n arr diagonal) 
-    :di (build-map n arr inverted-diagonal)
+    :id (build-map n arr inverted-diagonal)
   })
 
 (defn largest-product
@@ -50,7 +50,10 @@
 
 (def values (largest-product 0 (digits content) [])) 
 
-(println (apply max (map #(get-in % [:h :product]) values)))
-(println (apply max (map #(get-in % [:v :product]) values)))
-(println (apply max (map #(get-in % [:d :product]) values)))
-(println (apply max (map #(get-in % [:di :product]) values)))
+(defn max-product
+  [k]
+  (apply max (map #(get-in % [k :product]) values)))
+
+(def lines [:h :v :d :id])
+
+(println (apply max (map max-product lines)))
