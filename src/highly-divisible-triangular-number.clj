@@ -5,7 +5,7 @@
     [index]))
 
 (defn factors
-  ([number] (factors number 1 #{}))
+  ([number] (factors number 1 []))
   ([number index acc]
     (if (>= index (inc (Math/sqrt number)))
       acc
@@ -17,7 +17,7 @@
   ([] (highly-div 2))
   ([start]
     (if (> (count (factors (reduce + (range (inc start))))) 500)
-      start
+      (reduce + (range (inc start)))
       (recur (inc start)))))
 
 (println (highly-div))
