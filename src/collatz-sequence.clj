@@ -22,5 +22,4 @@
       max-seq
       (recur (dec limit) (max-list max-seq (collatz-seq limit))))))
 
-
 (println (collatz-max-seq 1000000))
